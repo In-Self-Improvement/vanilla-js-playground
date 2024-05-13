@@ -1,6 +1,6 @@
 'use strict';
 
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 
 document.querySelector('.check').addEventListener('click', function () {
@@ -26,3 +26,15 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('body').style.backgroundColor = 'orange';
   }
 });
+
+document.querySelector('.again').addEventListener('click', function () {
+  resetButton();
+});
+
+function resetButton() {
+  document.querySelector('.message').textContent = 'Start guessing...';
+  document.querySelector('.score').textContent = 20;
+  document.querySelector('.guess').value = '';
+  document.querySelector('body').style.backgroundColor = '#222';
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+}
